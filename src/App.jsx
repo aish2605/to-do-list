@@ -25,12 +25,21 @@ function App() {
   
   }
   
+const undoTask = (place)=>{
+  setTimeout(()=>{
+    let t = completed.splice(place,1)
+    setTask([...task,t])
+    setCb(false)
+    setCompleted([...completed])
+  },500)
+}
+  
 
   return (
     <>
     
     <div className="container">
-    <div className='box'>
+  
         <div>
            <h3 id="heading">To Do List ✅..</h3>
         </div>
@@ -90,12 +99,16 @@ function App() {
         
         <div className='completed'>
                   <h2>Completed Task</h2>
-                  {completed.map((item,index)=><li key={index}>{item}</li>)}
+                  {completed.map((item,index)=>
+                     <div className='undo'> 
+                     <img id={index} src="./undo.png" width="50" onClick={()=>{undoTask(index)}}/>
+                     <li key={index}>{item}</li>
+                    </div>)}
               </div>
             
         </div>
         </div>
-        </div>
+      
         </>
     )
   }
