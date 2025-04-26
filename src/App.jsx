@@ -39,7 +39,7 @@ const undoTask = (place)=>{
     <>
     
     <div className="container">
-  
+  <div className="card">
         <div>
            <h3 id="heading">To Do List ✅..</h3>
         </div>
@@ -106,6 +106,7 @@ const undoTask = (place)=>{
                     </div>)}
               </div>
             
+        </div>
         </div>
         </div>
       
